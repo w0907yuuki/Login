@@ -7,10 +7,10 @@ function App() {
         <h2>システムにログイン</h2>
         <input type='text' placeholder="IDを入力" className='UserID' id = "txtUserID"></input>
         <input type='password' placeholder="パスワードを入力" className='Password' id = "txtPassword"></input>
-        <button className='button'>送信</button><br></br>
+        <button className='submitbutton'>送信</button><br></br>
         <a href="#" className='link'>アカウントを忘れた場合</a><br></br><br></br>
         <a className='info'>——————————または——————————</a><br></br>
-        <button className='button'>新しいアカウント作成</button>
+        <button className='createbutton'>新しいアカウント作成</button>
       </div>
     </div>
   );

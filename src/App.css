@@ -26,7 +26,15 @@
   font-size: 16px;
 }
 
-.main button{
+.submitbutton{
+  width: 50vh;
+  height: 6vh;
+  font-size: 16px;
+  margin-top: 10px; /* 上に20ピクセルの空白を追加 */
+  margin-bottom: 20px; /* 下に20ピクセルの空白を追加 */
+}
+
+.createbutton{
   width: 50vh;
   height: 6vh;
   font-size: 16px;
