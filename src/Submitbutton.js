@@ -1,9 +1,19 @@
 import App from "./App";
 import React,{ useState } from "react";
 
-const submitbutton = () =>{
+const submitbutton = ({password}) =>{
+    const handleSubmit = () => {
+        console.log("Password",password);
+        if(!password){
+            alert('パスワードを入力してください')
+        }
+        else{
+            alert('パスワード入力成功')
+        }
+    
+    }
     return(
-        <button className='submitbutton'>送信</button>
+        <button className='submitbutton' onClick={handleSubmit}>送信</button>
     );
 };
 export default submitbutton;
