@@ -11,7 +11,7 @@ const App = () => {
       <div className='position'>
         <h2>システムにログイン</h2>
         <input type='text' placeholder="IDを入力" className='UserID' id = "txtUserID"ref={refUserid}></input>
-       <Password />
+       <Password /><br></br>
        <Submitbutton /><br></br>
         <a href="#" className='link'>アカウントを忘れた場合</a><br></br><br></br>
         <a className='info'>——————————または——————————</a><br></br>
