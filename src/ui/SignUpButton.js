@@ -1,9 +1,6 @@
-import React,{ useState } from "react";
-import { BrowserRouter, Link, Switch, Route, Navigate } from "react-router-dom";
 import {useNavigate} from 'react-router-dom';
-import {SignUp} from "./SignUp.js";
 
-const Createbutton = () => {
+const SignUpButton = () => {
     const navigate = useNavigate();
     const handleMovePage = () =>{
         navigate("/SignUp");
@@ -16,4 +13,4 @@ const Createbutton = () => {
     );
 
 };
-export default Createbutton;
+export default SignUpButton;

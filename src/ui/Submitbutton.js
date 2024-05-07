@@ -1,5 +1,4 @@
-import App from "./Login";
-import React,{ useState } from "react";
+
 
 const submitbutton = ({password}) =>{
     const handleSubmit = () => {

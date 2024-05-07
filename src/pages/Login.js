@@ -1,9 +1,9 @@
-import './App.css';
+import './Login.css';
 import React, { useRef, useState } from 'react';
-import { BrowserRouter,Route,Link, Routes} from 'react-router-dom';
-import Password from './Password.js';
-import Submitbutton from './Submitbutton.js';
-import Createbutton from './Createbutton.js';
+import Password from '../ui/LoginPasswordInput.js';
+import Submitbutton from '../ui/Submitbutton';
+import Createbutton from '../ui/SignUpButton.js';
+
 
 const Login = () => {
   const refUserid = useRef(null);
@@ -20,10 +20,9 @@ const Login = () => {
           <input type='text' placeholder="IDを入力" className='UserID' id = "txtUserID"ref={refUserid}></input>
           <Password PassToApp ={PassToApp}/><br></br>
           <Submitbutton password={password} /><br></br>
-          <a href="#" className='link'>アカウントを忘れた場合</a><br></br><br></br>
-          <a className='info'>——————————または——————————</a><br></br>
+          <p className='link'>アカウントを忘れた場合</p><br></br><br></br>
+          <p className='info'>——————————または——————————</p><br></br>
           <Createbutton />
-          <a>{password}</a>
         </div>
       </div>
   );
