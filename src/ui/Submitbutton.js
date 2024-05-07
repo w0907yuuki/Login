@@ -1,6 +1,6 @@
+import "./SubmitButton.css";
 
-
-const submitbutton = ({password}) =>{
+const SubmitButton = ({password}) =>{
     const handleSubmit = () => {
         console.log("Password",password);
         if(!password){
@@ -15,4 +15,4 @@ const submitbutton = ({password}) =>{
         <button className='submitbutton' onClick={handleSubmit}>送信</button>
     );
 };
-export default submitbutton;
+export default SubmitButton;
