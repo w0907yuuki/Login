@@ -1,7 +1,13 @@
 import './SignUp.css';
 import React, { useRef, useState } from 'react';
-import Password from '../ui/LoginPasswordInput.js';
+import SignUpPasswordInput from '../ui/SignUpPasswordInput.js';
 import SubmitButton from '../ui/SubmitButton.js';
+import SelectYear from '../ui/SelectYear.js';
+import SelectMon from '../ui/SelectMon.js';
+import SelectDay from '../ui/SelectDay.js';
+import CheckBoxMan from '../ui/CheckBoxMan.js';
+import CheckBoxWoMan from '../ui/CheckBoxWoman.js';
+import CheckBoxOther from '../ui/CheckBoxOther.js';
 
 const SignUp = () => {
   const refUserid = useRef(null);
@@ -12,17 +18,32 @@ const SignUp = () => {
   }
 
   return (
+    <form>
       <div className='main'>
         <div className='position'>
           <h2>アカウント作成</h2>
-          <input type='text' placeholder="姓" className='FirstName' id = "txtFirstName"ref={refUserid}></input>
-          <input type='text' placeholder="名" className='LastName' id = "txtLastName"ref={refUserid}></input>
-          <Password PassToApp ={PassToApp}/><br></br>
+          <div className='textbox-container'>
+            <input type='text' placeholder="姓" className='firstName' ref={refUserid}></input>
+            <input type='text' placeholder="名" className='lastName' ref={refUserid}></input>
+          </div>
+          <p className='p-birth'>生年月日</p>
+          <div className='selectbirthday'>
+            <SelectYear />
+            <SelectMon />
+            <SelectDay />
+          </div>
+          <p className='p-gender'>性別　※任意</p>
+          <div className='checkgender'>
+            <CheckBoxMan />
+            <CheckBoxWoMan />
+            <CheckBoxOther />
+          </div>
+          <input type='text' placeholder='メールアドレス' className='mailaddress' />
+          <SignUpPasswordInput PassToApp ={PassToApp}/><br></br>
           <SubmitButton password={password} /><br></br>
-          <p className='link'>アカウントを忘れた場合</p><br></br><br></br>
-          <p className='info'>——————————または——————————</p><br></br>
         </div>
       </div>
+    </form>
   );
 };
 
