@@ -1,5 +1,7 @@
 import './SignUp.css';
 import React, { useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
+import Login from './Login.js';
 import SignUpPasswordInput from '../ui/SignUpPasswordInput.js';
 import SubmitButton from '../ui/SubmitButton.js';
 import SelectYear from '../ui/SelectYear.js';
@@ -8,6 +10,7 @@ import SelectDay from '../ui/SelectDay.js';
 import CheckBoxMan from '../ui/CheckBoxMan.js';
 import CheckBoxWoMan from '../ui/CheckBoxWoman.js';
 import CheckBoxOther from '../ui/CheckBoxOther.js';
+import TextID from '../ui/TextID.js';
 
 const SignUp = () => {
   const refUserid = useRef(null);
@@ -39,8 +42,10 @@ const SignUp = () => {
             <CheckBoxOther />
           </div>
           <input type='text' placeholder='メールアドレス' className='mailaddress' />
+          <TextID />
           <SignUpPasswordInput PassToApp ={PassToApp}/><br></br>
           <SubmitButton password={password} /><br></br>
+          <Link to = "/Login">ログイン</Link>
         </div>
       </div>
     </form>
