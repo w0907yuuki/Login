@@ -11,6 +11,7 @@ import CheckBoxMan from '../ui/CheckBoxMan.js';
 import CheckBoxWoMan from '../ui/CheckBoxWoman.js';
 import CheckBoxOther from '../ui/CheckBoxOther.js';
 import TextID from '../ui/TextID.js';
+import CreateAccount from '../ui/CreateAccount.js';
 
 const SignUp = () => {
   const refUserid = useRef(null);
@@ -44,7 +45,7 @@ const SignUp = () => {
           <input type='text' placeholder='メールアドレス' className='mailaddress' />
           <TextID />
           <SignUpPasswordInput PassToApp ={PassToApp}/><br></br>
-          <SubmitButton password={password} /><br></br>
+          <CreateAccount password={password} /><br></br>
           <Link to = "/Login">ログイン</Link>
         </div>
       </div>

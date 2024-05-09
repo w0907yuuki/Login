@@ -12,7 +12,7 @@ const CreateAccount = ({password}) =>{
     
     }
     return(
-        <button className='submitbutton' onClick={handleSubmit}>送信</button>
+        <button className='createaccont' onClick={handleSubmit}>送信</button>
     );
 };
 export default CreateAccount;
