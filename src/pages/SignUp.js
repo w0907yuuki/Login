@@ -1,17 +1,15 @@
 import './SignUp.css';
 import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Login from './Login.js';
-import SignUpPasswordInput from '../ui/SignUpPasswordInput.js';
-import SubmitButton from '../ui/SubmitButton.js';
-import SelectYear from '../ui/SelectYear.js';
-import SelectMon from '../ui/SelectMon.js';
-import SelectDay from '../ui/SelectDay.js';
-import CheckBoxMan from '../ui/CheckBoxMan.js';
-import CheckBoxWoMan from '../ui/CheckBoxWoman.js';
-import CheckBoxOther from '../ui/CheckBoxOther.js';
-import TextID from '../ui/TextID.js';
-import CreateAccount from '../ui/CreateAccount.js';
+import SignUpPasswordInput from '../ui/SignUp/SignUpPasswordInput.js';
+import SelectYear from '../ui/SignUp/SelectYear.js';
+import SelectMon from '../ui/SignUp/SelectMon.js';
+import SelectDay from '../ui/SignUp/SelectDay.js';
+import CheckBoxMan from '../ui/SignUp/CheckBoxMan.js';
+import CheckBoxWoMan from '../ui/SignUp/CheckBoxWoman.js';
+import CheckBoxOther from '../ui/SignUp/CheckBoxOther.js';
+import TextID from '../ui/SignUp/TextID.js';
+import CreateAccount from '../ui/SignUp/CreateAccount.js';
 
 const SignUp = () => {
   const refUserid = useRef(null);
