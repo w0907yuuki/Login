@@ -1,9 +1,32 @@
 import './SelectMon.css';
+import { useState } from 'react';
 
-const SelectMon = () =>{
+const SelectMon = (props) =>{
+    const[birthmon,setbirthmon]=useState('');
+    const[errormon,seterrorbirthmon]=useState('');
+    //入力チェック
+    const errorbirthmon = (e) =>{
+        if(birthmon ===""){
+            seterrorbirthmon('月を選択してください');
+            props.ErrorMon('月を選択してください')
+            
+        }
+        else{
+            seterrorbirthmon('');
+            props.ErrorMon('');
+        }
+    }
+    //もし選択したら値を渡す
+    const handlechange= (e) =>{
+        const newbirthmon = e.target.value;
+        setbirthmon(newbirthmon);
+        props.BirthMonToApp(newbirthmon); 
+}
+    console.log(errormon)
+
     return(
         <>
-            <select className='selectmon'>
+            <select className='selectmon'onChange={handlechange} onBlur={errorbirthmon}>
                 <option value="">-</option>
                 <option value="1">1</option>
                 <option value="2">2</option>

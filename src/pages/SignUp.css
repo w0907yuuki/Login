@@ -23,7 +23,7 @@
    height: 3vh;
    margin-top: 10px; /* 上に20ピクセルの空白を追加 */
    margin-bottom: 10px; /* 下に20ピクセルの空白を追加 */
-   margin-right: 60px;
+   margin-right: 45px;
    font-size: 16px;
  }
  .lastName{
@@ -33,11 +33,22 @@
     margin-bottom: 10px; /* 下に20ピクセルの空白を追加 */
     font-size: 16px;
   }
+  .errorname{
+    color: red;
+    margin-left: -35vh;
+    font-size: 10px;
+  }
   .p-birth{
     margin-left: -43.5vh;
     font-size: 13px;
     margin-bottom: 1px;
   }
+  .errormsg{
+    color: red;
+    margin-left: -35vh;
+    font-size: 10px;
+  }
+
   .p-gender{
     margin-left: -41vh;
     font-size: 13px;
@@ -51,11 +62,16 @@
   }
 
   .mailaddress{
-        width: 48vh;
+        width: 50vh;
         height: 3vh;
         margin-top: 10px; /* 上に20ピクセルの空白を追加 */
         margin-bottom: 10px; /* 下に20ピクセルの空白を追加 */
         font-size: 16px;
+  }
+  .erroraddressmsg{
+    color: red;
+    margin-left: -32vh;
+    font-size: 10px;
   }
 
  .link{

@@ -1,9 +1,30 @@
+import { useState } from 'react';
 import './SelectYear.css';
 
-const SelectYear = () =>{
+const SelectYear = (props) =>{
+    const[birthyear,setbirthyear]=useState('');
+    const[erroryear,seterrorbirthyear]=useState('');
+    const errorbirthyear = (e) =>{
+        if(birthyear ===""){
+            seterrorbirthyear('年を選択してください');
+            props.ErrorYear('年を選択してください')
+            
+        }
+        else{
+            seterrorbirthyear('');
+            props.ErrorYear('');
+        }
+    }
+     //もし選択したら値を渡す
+    const handlechange= (e) =>{
+        const newbirthyear = e.target.value;
+        setbirthyear(newbirthyear);
+        props.BirthYearToApp(newbirthyear); 
+}
+    console.log(erroryear)
     return(
         <>
-        <select className='selectyear'>
+        <select className='selectyear' onChange={handlechange} onBlur={errorbirthyear}>
             <option value="">-</option>
             <option value="1900">1900</option>
             <option value="1901">1901</option>

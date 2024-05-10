@@ -1,9 +1,29 @@
 import './SelectDay.css';
-
-const SelectDay = () =>{
+import { useState } from 'react';
+const SelectDay = (props) =>{
+    const[birthday,setbirthday]=useState('');
+    const[errorday,seterrorbirthday]=useState('');
+    const errorbirthday = (e) =>{
+        if(birthday ===""){
+            seterrorbirthday('年を選択してください');
+            props.ErrorDay('年を選択してください')
+            
+        }
+        else{
+            seterrorbirthday('');
+            props.ErrorDay('');
+        }
+    }
+     //もし選択したら値を渡す
+    const handlechange= (e) =>{
+        const newbirthday = e.target.value;
+        setbirthday(newbirthday);
+        props.BirthDayToApp(newbirthday); 
+}
+    console.log(errorday)
     return(
         <>
-            <select className='selectday'>
+            <select className='selectday'onChange={handlechange} onBlur={errorbirthday}>
                 <option value="">-</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
