@@ -6,7 +6,7 @@ const SelectDay = (props) =>{
     const errorbirthday = (e) =>{
         if(birthday ===""){
             seterrorbirthday('年を選択してください');
-            props.ErrorDay('年を選択してください')
+            props.ErrorDay(errorday)
             
         }
         else{

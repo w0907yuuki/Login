@@ -5,9 +5,9 @@ const TextID = (props) =>{
     const[id,setid]=useState('');
     const[errorid,seterrorid]=useState('');
     const handleerrorid = (e) =>{
-        if(id ===""){
+        if(!id){
             seterrorid('IDを入力してください');
-            props.ErrorID('IDを入力してください')
+            props.ErrorID(errorid)
             
         }
         else{
@@ -15,7 +15,7 @@ const TextID = (props) =>{
             props.ErrorID('');
         }
     }
-     //もし選択したら値を渡す
+     //もし入力したら値を渡す
     const handlechange= (e) =>{
         const newid = e.target.value;
         setid(newid);

@@ -10,6 +10,7 @@ import CheckBoxWoMan from '../ui/SignUp/CheckBoxWoman.js';
 import CheckBoxOther from '../ui/SignUp/CheckBoxOther.js';
 import TextID from '../ui/SignUp/TextID.js';
 import CreateAccount from '../ui/SignUp/CreateAccount.js';
+import TextMailAddress from '../ui/SignUp/TextMailAddress.js';
 
 const SignUp = () => {
   const [password,setPassword] = useState('');
@@ -39,10 +40,12 @@ const SignUp = () => {
         setfirstname(newfirstname); 
   };
   //メールアドレス取得
-  const handleaddless = (e) =>{
-    const newmailaddress = e.target.value;
-        setmailaddress(newmailaddress); 
+  const AddToApp = (AddToApp) =>{
+        setmailaddress(AddToApp); 
   };
+  const ErrorAddress =(ErrorAddress) =>{
+    seterroraddress(ErrorAddress);
+  }
   
   //年リスト
   const BirthYearToApp =(BirthYearToApp) =>{
@@ -103,14 +106,6 @@ const SignUp = () => {
       seterrorlastname('')
     }
   }
-  const Bluraddress = (e) =>{
-    if(!mailaddress){
-      seterroraddress('メールアドレスにメールを入力してください');
-    }
-    else{
-      seterroraddress('');
-    }
-  }
   const handlefromsubmit = (e) =>{
     e.preventDefault();
     if(!firstname){
@@ -169,9 +164,7 @@ const SignUp = () => {
             <CheckBoxOther />
           </div>
           {erroraddress && <p className='erroraddressmsg'>メールアドレスを入力してください</p>}
-          <input type='text' placeholder='メールアドレス' 
-            className='mailaddress' onChange={handleaddless} onBlur={Bluraddress}
-          /><br></br>
+          <TextMailAddress AddToApp={AddToApp} ErrorAddress={ErrorAddress} />
           {errorid && <p className='errormsg'>IDを入力してください</p>}
           <TextID IDToApp={IDToApp} ErrorID={ErrorID}/><br></br>
           {errorpassword && <p className='erroraddressmsg'>パスワードを入力してください</p>}
