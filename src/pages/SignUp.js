@@ -149,13 +149,10 @@ const SignUp = () => {
       <div className='main'>
         <div className='position'>
           <h2>アカウント作成</h2>
-
-          <div className='textbox-container'>
-            <input type='text' placeholder="姓" className='firstName' onChange={handlefirstname}  onBlur={Blurfirstname}></input>
-            <input type='text' placeholder="名" className='lastName' onChange={handlelastname} onBlur={Blurlastname}></input>
-          </div>
           {errorfirstname && <p className='errorname'>姓を入力してください</p>}
+          <input type='text' placeholder="姓" className='firstName' onChange={handlefirstname}  onBlur={Blurfirstname}></input><br></br>  
           {errorlastname && <p className='errorname'>名を入力してください</p>}
+          <input type='text' placeholder="名" className='lastName' onChange={handlelastname} onBlur={Blurlastname}></input>
           <p className='p-birth'>生年月日</p>
           {errorbirthyear && <p className='errormsg'>年を選択してください</p>}
           {errorbirthmon && <p className='errormsg'>月を選択してください</p>}

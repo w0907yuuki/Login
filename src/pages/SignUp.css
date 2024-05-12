@@ -14,6 +14,7 @@
      left: 50%; /* 左端を画面の50%に設定 */
      transform: translate(-50%, -50%); /* 中央揃え */
      text-align: center;
+     width: 500px;
  }
 
  .textbox-container {
@@ -21,15 +22,14 @@
     text-align: center;
   }
   .firstName{
-   width: 20vh;
+   width: 50vh;
    height: 3vh;
    margin-top: 10px; /* 上に20ピクセルの空白を追加 */
    margin-bottom: 10px; /* 下に20ピクセルの空白を追加 */
-   margin-right: 45px;
    font-size: 16px;
  }
  .lastName{
-    width: 20vh;
+    width: 50vh;
     height: 3vh;
     margin-top: 10px; /* 上に20ピクセルの空白を追加 */
     margin-bottom: 10px; /* 下に20ピクセルの空白を追加 */
