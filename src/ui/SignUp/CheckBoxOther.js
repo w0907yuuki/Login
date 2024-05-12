@@ -4,7 +4,7 @@ const CheckBoxOther = () =>{
     return(
         <>
             <input type="radio" name="radiogender"className="radioother" />
-            <label for='checkboxother'>その他</label>
+            <label htmlFor='checkboxother'>その他</label>
         </>
     );
 } ;

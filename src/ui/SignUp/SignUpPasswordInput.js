@@ -11,19 +11,18 @@ const SignUpPasswordInput = (props) =>{
         setPassword(newPassword);
         props.PassToApp(newPassword); 
       };
-
+      console.log(errorpassword);
     const Blurpass = (event) =>{
         const newPassword = event.target.value;
         if(newPassword===""){
-            seterrorpassword('パスワードを入力してください');
-            props.ErrorPassword('パスワードを入力してください');
+            seterrorpassword(true);
+            props.ErrorPass(true);
         }
         else{
             seterrorpassword('');
-            props.ErrorPassword('');
+            props.ErrorPass('');
         }
     }
-    console.log(errorpassword)
     return(
         <>
         <input type='password' placeholder="パスワードを入力" className='SignUpPasswordInput' id = "txtPassword" value={Password} onChange={handleChange} onBlur={Blurpass} ></input><br></br>

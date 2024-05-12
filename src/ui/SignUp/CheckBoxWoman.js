@@ -3,7 +3,7 @@ const CheckBoxWoMan = () =>{
     return(
         <>
         <input type="radio" name="radiogender" className="radiowoman" value="women"/>
-        <label for='checkboxwoman'>女性</label>
+        <label htmlFor='checkboxwoman'>女性</label>
         </>
     );
 } ;

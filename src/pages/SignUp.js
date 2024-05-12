@@ -26,9 +26,8 @@ const SignUp = () => {
   const [errorbirthmon,seterrorbirthmon] =useState('');
   const [errorbirthday,seterrorbirthday] =useState('');
   const [errorid,seterrorid] =useState('');
-  const [eroraddress,seterroraddress] = useState('');
+  const [erroraddress,seterroraddress] = useState('');
   const [errorpassword,seterrorpassword] = useState('');
-
   //名取得
   const handlelastname = (e) =>{
     const newlastname = e.target.value;
@@ -49,25 +48,25 @@ const SignUp = () => {
   const BirthYearToApp =(BirthYearToApp) =>{
     setbirthyear(BirthYearToApp);
   };
-
-  const ErrorYear = (ErrorYear) => {
+  const ErrorYear =(ErrorYear)=>{
     seterrorbirthyear(ErrorYear);
   };
+
   //月リスト
   const BirthMonToApp =(BirthMonToApp) =>{
     setbirthmon(BirthMonToApp);
   };
-  const ErrorMon = (ErrorMon) =>{
+  const ErrorMon =(ErrorMon)=>{
     seterrorbirthmon(ErrorMon);
-  }
+  };
 
   //日リスト
   const BirthDayToApp =(BirthDayToApp) =>{
     setbirthday(BirthDayToApp);
   };
-  const ErrorDay = (ErrorDay) =>{
+  const ErrorDay =(ErrorDay)=>{
     seterrorbirthday(ErrorDay);
-  }
+  };
 
   //ID取得
   const IDToApp = (IDToApp) => {
@@ -80,10 +79,13 @@ const SignUp = () => {
   const PassToApp = (PassToApp) => {
     setPassword(PassToApp);
   };
-  const ErrorPassword =(ErrorPassword) =>{
-    seterrorpassword(ErrorPassword);
+  const ErrorPass = (ErrorPass) =>{
+    seterrorpassword(ErrorPass);
+    if(ErrorPass === true){
+      seterrorpassword('パスワードを入力してください');
+    }
   }
-
+ 
   //フォーカスが外れたら実施
   const Blurfirstname= (e) =>{
     if(!firstname){
@@ -109,9 +111,41 @@ const SignUp = () => {
       seterroraddress('');
     }
   }
+  const handlefromsubmit = (e) =>{
+    e.preventDefault();
+    if(!firstname){
+      seterrorfirstname('姓を入力してください');
+    }
+    else if(!lastname){
+      seterrorlastname('名を入力してください');
+    }
+    else if(!birthyear){
+      seterrorbirthyear('年を選択してください');
+    }
+    else if(!birthmon){
+      seterrorbirthmon('月を選択してください');
+    }
+    else if(!birthday){
+      seterrorbirthday('日を選択してください');
+    }
+    else if(!mailaddress){
+      seterroraddress('メールアドレスを入力してください');
+    }
+    else if(!id){
+      seterrorid('IDを入力してください');
+    }
+    else if(!password){
+      seterrorpassword('パスワードを入力してください')
+    }
+
+    else{
+      alert('成功')
+    }
+
+  }
 
   return (
-    <form>
+    <form onSubmit={handlefromsubmit}>
       <div className='main'>
         <div className='position'>
           <h2>アカウント作成</h2>
@@ -120,7 +154,8 @@ const SignUp = () => {
             <input type='text' placeholder="姓" className='firstName' onChange={handlefirstname}  onBlur={Blurfirstname}></input>
             <input type='text' placeholder="名" className='lastName' onChange={handlelastname} onBlur={Blurlastname}></input>
           </div>
-          <p className='errorname'>{errorfirstname}<br></br> {errorlastname}</p>
+          {errorfirstname && <p className='errorname'>姓を入力してください</p>}
+          {errorlastname && <p className='errorname'>名を入力してください</p>}
           <p className='p-birth'>生年月日</p>
           {errorbirthyear && <p className='errormsg'>年を選択してください</p>}
           {errorbirthmon && <p className='errormsg'>月を選択してください</p>}
@@ -136,18 +171,15 @@ const SignUp = () => {
             <CheckBoxWoMan />
             <CheckBoxOther />
           </div>
-          {eroraddress && <p className='erroraddressmsg'>メールアドレスを入力してください</p>}
+          {erroraddress && <p className='erroraddressmsg'>メールアドレスを入力してください</p>}
           <input type='text' placeholder='メールアドレス' 
             className='mailaddress' onChange={handleaddless} onBlur={Bluraddress}
           /><br></br>
           {errorid && <p className='errormsg'>IDを入力してください</p>}
           <TextID IDToApp={IDToApp} ErrorID={ErrorID}/><br></br>
           {errorpassword && <p className='erroraddressmsg'>パスワードを入力してください</p>}
-          <SignUpPasswordInput PassToApp ={PassToApp} ErrorPassword ={ErrorPassword}/><br></br>
-          <CreateAccount 
-          password={password} firstname={firstname} lastname={lastname} 
-          id ={id} mailaddress={mailaddress} birthyear = {birthyear} 
-          birthday={birthday} birthmon={birthmon}/><br></br>
+          <SignUpPasswordInput PassToApp ={PassToApp} ErrorPass ={ErrorPass} /><br></br>
+          <CreateAccount /><br></br>
           <Link to = "/Login">ログイン</Link>
         </div>
       </div>
