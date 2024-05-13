@@ -11,6 +11,7 @@ import CheckBoxOther from '../ui/SignUp/CheckBoxOther.js';
 import TextID from '../ui/SignUp/TextID.js';
 import CreateAccount from '../ui/SignUp/CreateAccount.js';
 import TextMailAddress from '../ui/SignUp/TextMailAddress.js';
+import SignUpPassCheck from '../ui/SignUp/SignUpPassCheck.js';
 
 const SignUp = () => {
   const [password,setPassword] = useState('');
@@ -21,6 +22,7 @@ const SignUp = () => {
   const [birthmon,setbirthmon] = useState('');
   const [birthday,setbirthday] = useState('');
   const [id,setid] = useState('');
+  const [checkpass,setcheckpass] =useState('');
   const [errorfirstname,seterrorfirstname] =useState('');
   const [errorlastname,seterrorlastname] =useState('');
   const [errorbirthyear,seterrorbirthyear] =useState('');
@@ -29,6 +31,8 @@ const SignUp = () => {
   const [errorid,seterrorid] =useState('');
   const [erroraddress,seterroraddress] = useState('');
   const [errorpassword,seterrorpassword] = useState('');
+  const [errorcheckpass,seterrorcheckpass] =useState('');
+
   //名取得
   const handlelastname = (e) =>{
     const newlastname = e.target.value;
@@ -85,9 +89,13 @@ const SignUp = () => {
   };
   const ErrorPass = (ErrorPass) =>{
     seterrorpassword(ErrorPass);
-    if(ErrorPass === true){
-      seterrorpassword('パスワードを入力してください');
-    }
+  };
+  //パスワード確認内容をチェック
+  const CheckPassToApp = (CheckPassToApp) =>{
+    setcheckpass(CheckPassToApp);
+  };
+  const ErrorCheckPass =(ErrorCheckPass) =>{
+    seterrorcheckpass(ErrorCheckPass);
   }
  
   //フォーカスが外れたら実施
@@ -124,12 +132,20 @@ const SignUp = () => {
     else if(!birthday){
       seterrorbirthday('日を選択してください');
     }
-    
+    else if(!mailaddress){
+      seterroraddress('メールアドレスを入力してください');
+    }
+    else if(!/\S+@\S+\.\S+/.test(mailaddress)){
+      seterroraddress('メールアドレスの形式が正しくありません');
+    }
     else if(!id){
       seterrorid('IDを入力してください');
     }
     else if(!password){
-      seterrorpassword('パスワードを入力してください')
+      seterrorpassword('パスワードを入力してください');
+    }
+    else if(!password === checkpass){
+      seterrorcheckpass('パスワードが間違ってます');
     }
 
     else{
@@ -168,7 +184,10 @@ const SignUp = () => {
           <TextID IDToApp={IDToApp} ErrorID={ErrorID}/><br></br>
           {errorpassword && <p className='errorpassmsg'>パスワードを入力してください</p>}
           <SignUpPasswordInput PassToApp ={PassToApp} ErrorPass ={ErrorPass} /><br></br>
+          {errorcheckpass && <p className='errorpassmsg'>パスワードが間違ってます</p>}
+          <SignUpPassCheck CheckPassToApp={CheckPassToApp} ErrorCheckPass={ErrorCheckPass}/><br></br>
           <CreateAccount /><br></br>
+
           <Link to = "/Login">ログイン</Link>
         </div>
       </div>
