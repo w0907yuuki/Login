@@ -144,7 +144,7 @@ const SignUp = () => {
     else if(!password){
       seterrorpassword('パスワードを入力してください');
     }
-    else if(!password === checkpass){
+    else if(!(password === checkpass)){
       seterrorcheckpass('パスワードが間違ってます');
     }
 
