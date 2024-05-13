@@ -10,16 +10,20 @@ const TextMailAddress = (props) =>{
             props.AddToApp(newmailaddress); 
       };
       const Bluraddress = (e) =>{
-        if(!mailaddress){
-          seterroraddress('メールアドレスにメールを入力してください');
-          props.ErrorAddress(erroraddress);
+        const newMailAddress = e.target.value;
+        if(!newMailAddress){
+          props.ErrorAddress('メールアドレスにメールを入力してください');
+        }
+        else if(!/\S+@\S+\.\S+/.test(newMailAddress)){
+            props.ErrorAddress('メールアドレスの形式が正しくありません');
         }
         else{
           seterroraddress('');
           props.ErrorAddress('');
         }
       }
-
+      console.log(mailaddress);
+      console.log(erroraddress);
     return(
         <>
         <input type='text' placeholder='メールアドレス' 

@@ -1,5 +1,5 @@
 import './SignUp.css';
-import React, {useState } from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import SignUpPasswordInput from '../ui/SignUp/SignUpPasswordInput.js';
 import SelectYear from '../ui/SignUp/SelectYear.js';
@@ -42,6 +42,7 @@ const SignUp = () => {
   //メールアドレス取得
   const AddToApp = (AddToApp) =>{
         setmailaddress(AddToApp); 
+        console.log(mailaddress);
   };
   const ErrorAddress =(ErrorAddress) =>{
     seterroraddress(ErrorAddress);
@@ -123,9 +124,7 @@ const SignUp = () => {
     else if(!birthday){
       seterrorbirthday('日を選択してください');
     }
-    else if(!mailaddress){
-      seterroraddress('メールアドレスを入力してください');
-    }
+    
     else if(!id){
       seterrorid('IDを入力してください');
     }
@@ -136,9 +135,9 @@ const SignUp = () => {
     else{
       alert('成功')
     }
-
   }
 
+   
   return (
     <form onSubmit={handlefromsubmit}>
       <div className='main'>
@@ -163,11 +162,11 @@ const SignUp = () => {
             <CheckBoxWoMan />
             <CheckBoxOther />
           </div>
-          {erroraddress && <p className='erroraddressmsg'>メールアドレスを入力してください</p>}
+          {erroraddress && <p className='erroraddressmsg'>{erroraddress}</p>}
           <TextMailAddress AddToApp={AddToApp} ErrorAddress={ErrorAddress} />
           {errorid && <p className='errormsg'>IDを入力してください</p>}
           <TextID IDToApp={IDToApp} ErrorID={ErrorID}/><br></br>
-          {errorpassword && <p className='erroraddressmsg'>パスワードを入力してください</p>}
+          {errorpassword && <p className='errorpassmsg'>パスワードを入力してください</p>}
           <SignUpPasswordInput PassToApp ={PassToApp} ErrorPass ={ErrorPass} /><br></br>
           <CreateAccount /><br></br>
           <Link to = "/Login">ログイン</Link>

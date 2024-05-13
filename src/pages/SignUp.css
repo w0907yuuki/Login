@@ -14,7 +14,7 @@
      left: 50%; /* 左端を画面の50%に設定 */
      transform: translate(-50%, -50%); /* 中央揃え */
      text-align: center;
-     width: 500px;
+     width: 530px;
  }
 
  .textbox-container {
@@ -48,7 +48,7 @@
   }
   .errormsg{
     color: red;
-    margin-left: -35vh;
+    margin-left: -40vh;
     font-size: 10px;
     pointer-events: none;
   }
@@ -67,16 +67,15 @@
     text-align: center;
   }
 
-  .mailaddress{
-        width: 50vh;
-        height: 3vh;
-        margin-top: 10px; /* 上に20ピクセルの空白を追加 */
-        margin-bottom: 10px; /* 下に20ピクセルの空白を追加 */
-        font-size: 16px;
-  }
   .erroraddressmsg{
     color: red;
-    margin-left: -32vh;
+    margin-left: -29vh;
+    font-size: 10px;
+    pointer-events: none;
+  }
+  .errorpassmsg{
+    color: red;
+    margin-left: -35vh;
     font-size: 10px;
     pointer-events: none;
   }
