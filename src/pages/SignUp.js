@@ -115,6 +115,7 @@ const SignUp = () => {
       seterrorlastname('')
     }
   }
+  //送信ボタン押下時最終チェック
   const handlefromsubmit = (e) =>{
     e.preventDefault();
     if(!firstname){
@@ -153,7 +154,6 @@ const SignUp = () => {
     }
   }
 
-   
   return (
     <form onSubmit={handlefromsubmit}>
       <div className='main'>
@@ -196,7 +196,3 @@ const SignUp = () => {
 };
 
 export default SignUp;
-
-            /*radio値の渡し方*/
-            //onBlurでエラーメッセージ
-            //
