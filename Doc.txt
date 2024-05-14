@@ -22,5 +22,31 @@
 　　　メールにあるリンクをクリックした際登録完了
 　　●登録完了後システムの画面を表示　　
 　
-　
+
+DB
+・登録する項目
+　ID　not null uniqkey primarykey
+　姓 not null String
+　名 not null String
+　生年月日 not null int
+　性別 strung
+　メールアドレス not null string 
+　UserID not null string  uniqkey
+　パスワード not null string 
+
+javaでやる処理
+　・DB接続
+　・DBにデータ登録
+　・メールアドレスにメールを送る
+　　リンクをクリックしたらDB登録を行う
+　・
+
+
+今後実装予定
+　・データ更新　USERID、メアド、パス変更時
+　・検索システム
+
+
+
+
 
